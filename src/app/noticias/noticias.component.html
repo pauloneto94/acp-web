@@ -1,0 +1,17 @@
+<h2>Noticias</h2>
+<ul class="noticias">
+  <li *ngFor="let n of noticias" [class.selected]="noticia === noticiaSelecionada">
+    <span class="badge">{{n.id}}</span> {{n.title}}
+    <button (click)="onSelect(n)" type="button">Select</button>
+  </li>
+</ul>
+<div *ngIf="noticiaSelecionada">
+<h2>{{noticiaSelecionada.title}} Details</h2>
+<div><span>id: </span>{{noticiaSelecionada.id}}</div>
+<div><span>name: </span>{{noticiaSelecionada.title}}</div>
+<div>
+    <label>name:
+      <input [(ngModel)]="noticiaSelecionada.title" placeholder="name"/>
+    </label>
+  </div>
+</div>
