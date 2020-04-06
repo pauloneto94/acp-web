@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../model/noticias';
-import { NoticiService, NoticiaService } from '../services/noticia.service'
+import { NoticiaService } from '../services/noticia.service'
 
 @Component({
   selector: 'app-noticias',
@@ -13,8 +13,6 @@ export class NoticiasComponent implements OnInit {
 
   noticias: Noticia[];
 
-  noticiaSelecionada: Noticia;
-
   ngOnInit() {
     this.getNoticias();
   }
@@ -25,9 +23,4 @@ export class NoticiasComponent implements OnInit {
         this.noticias = noticias
       });
   }
-
-  onSelect(noticia: Noticia): void{
-    this.noticiaSelecionada = noticia;
-  }
-
 }

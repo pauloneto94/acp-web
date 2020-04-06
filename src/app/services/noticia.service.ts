@@ -19,4 +19,9 @@ export class NoticiaService {
   getNoticias(): Observable<Noticia[]>{
     return of(this.noticias);
   }
+
+getNoticia(id: number): Observable<Noticia>{
+  return of(this.noticias.find(noticia => noticia.id === id));
+}
+
 }

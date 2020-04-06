@@ -4,16 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { NoticiaDetailComponent } from './noticia-detail/noticia-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NoticiasComponent,
-    NoticiaDetailComponent
+    NoticiaDetailComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,7 @@
+<h3>Ultimas Noticias</h3>
+<a *ngFor="let noticia of noticias" class="col-1-4"
+    routerLink="/detail/{{noticia.id}}">
+  <div class="module noticia">
+    <h4>{{noticia.title}}</h4>
+  </div>
+</a>

@@ -1,10 +1,11 @@
 <div *ngIf="noticia">
-    <h2>{{noticia.title}} Details</h2>
-    <div><span>id: </span>{{noticia.id}}</div>
-    <div><span>name: </span>{{noticia.title}}</div>
+  <h2>{{noticia.title}} Details</h2>
+  <div><span>id: </span>{{noticia.id}}</div>
     <div>
         <label>name:
           <input [(ngModel)]="noticia.title" placeholder="name"/>
         </label>
       </div>
+      <button (click)="goBack()">go back</button>  
     </div>
+
