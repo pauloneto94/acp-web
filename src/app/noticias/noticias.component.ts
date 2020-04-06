@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Noticia } from '../model/noticias';
+import { NoticiService, NoticiaService } from '../services/noticia.service'
 
 @Component({
   selector: 'app-noticias',
@@ -8,18 +9,21 @@ import { Noticia } from '../model/noticias';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private noticiaService: NoticiaService) { }
 
-  noticias: Noticia[] = [
-    {id: 1, title: "ACP 1"},
-    {id: 2, title: "ACP 2"},
-    {id: 3, title: "ACP 3"},
-    {id: 4, title: "ACP 4"},
-  ]
+  noticias: Noticia[];
 
   noticiaSelecionada: Noticia;
 
   ngOnInit() {
+    this.getNoticias();
+  }
+
+  getNoticias(): void{
+    this.noticiaService.getNoticias()
+      .subscribe(noticias =>{
+        this.noticias = noticias
+      });
   }
 
   onSelect(noticia: Noticia): void{

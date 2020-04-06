@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Noticia } from '../model/noticias';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class NoticiaService {
 
   constructor() { }
 
-  getNoticias(): Noticia[]{
-    return this.noticias;
+  getNoticias(): Observable<Noticia[]>{
+    return of(this.noticias);
   }
 }
