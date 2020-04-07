@@ -19,8 +19,12 @@ export class NoticiasComponent implements OnInit {
 
   getNoticias(): void{
     this.noticiaService.getNoticias()
-      .subscribe(noticias =>{
-        this.noticias = noticias
-      });
+    .subscribe(actionArray =>{
+      this.noticias = actionArray.map(item =>{
+        const data = item.payload.doc.data() as Noticia;
+        data.id = item.payload.doc.id;
+        return data;
+      })
+    });
   }
 }

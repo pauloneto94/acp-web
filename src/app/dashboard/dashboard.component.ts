@@ -9,7 +9,7 @@ import { Noticia } from '../model/noticias';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private noticiasService: NoticiaService) { }
+  constructor(private noticiaService: NoticiaService) { }
 
   noticias: Noticia[];
 
@@ -18,10 +18,14 @@ export class DashboardComponent implements OnInit {
   }
 
   getNoticias(): void{
-    this.noticiasService.getNoticias()
-      .subscribe(noticias =>{
-        this.noticias = noticias.slice(0, 5)
-      });
+    this.noticiaService.getNoticias()
+    .subscribe(actionArray =>{
+      this.noticias = actionArray.map(item =>{
+        const data = item.payload.doc.data() as Noticia;
+        data.id = item.payload.doc.id;
+        return data;
+      })
+    });
   }
 
 }

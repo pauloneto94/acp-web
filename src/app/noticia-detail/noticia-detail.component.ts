@@ -24,10 +24,11 @@ export class NoticiaDetailComponent implements OnInit {
   }
 
   getNoticia(): void{
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
     this.noticiaService.getNoticia(id)
       .subscribe(noticia =>{
-        this.noticia = noticia
+        this.noticia = noticia.payload.data() as Noticia;
+        this.noticia.id = noticia.payload.id
       });
   }
 

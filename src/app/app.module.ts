@@ -6,7 +6,12 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { NoticiaDetailComponent } from './noticia-detail/noticia-detail.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { environment } from "src/environments/environment";
+import { NoticiaService } from './services/noticia.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
 
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,9 +22,11 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+ 	  AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [NoticiaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
