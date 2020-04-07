@@ -8,10 +8,12 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class NoticiaService {
 
+  formData: Noticia;
+
   constructor(private firestore: AngularFirestore) { }
 
   getNoticias(){
-    return this.firestore.collection('news').snapshotChanges();
+    return this.firestore.collection('news', ref => ref.orderBy('pos', 'desc')).snapshotChanges();
   }
 
   getNoticia(id: string){

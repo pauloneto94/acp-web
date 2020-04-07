@@ -1,6 +1,7 @@
-export interface Noticia{
+export class Noticia{
   id: string;
   title: string;
+  news: string;
   body: string;
   url: string;
   image: string;
