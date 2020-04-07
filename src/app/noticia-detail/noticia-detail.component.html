@@ -1,11 +1,39 @@
-<div *ngIf="noticia">
-  <h2>{{noticia.title}} Details</h2>
-  <div><span>id: </span>{{noticia.id}}</div>
-    <div>
-        <label>name:
-          <input [(ngModel)]="noticia.title" placeholder="name"/>
-        </label>
-      </div>
+<div class="container" *ngIf="noticia">
+  <h2>{{noticia.title}}</h2>
+  <form #newsForm="ngForm" (ngSubmit)="onSubmit()">
+    {{diagnostic}}
+    <div class="form-group">
+      <label for="name">Titulo</label>
+      <input type="text" class="form-control" id="title"
+       required
+       [(ngModel)]="noticia.title" name="title">
+    </div>
+
+    <div class="form-group">
+      <label for="news">Manchete</label>
+      <input type="text" class="form-control" id="news"
+      required
+      [(ngModel)]="noticia.news" name="news">
+    </div>
+
+    <div class="form-group">
+      <label for="url">Url</label>
+      <input type="text" class="form-control" id="url"
+      required
+      [(ngModel)]="noticia.url" name="url">
+    </div>
+
+    <div class="form-group">
+      <label for="image">Imagem</label>
+      <input type="text" class="form-control" id="image"
+      required
+      [(ngModel)]="noticia.image" name="image">
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!newsForm.form.valid">Salvar alterações</button>
+    <button type="button" class="btn btn-success" (click)="delete()" routerLink="/noticias">Deletar</button> 
+  </form>
+       
       <button (click)="goBack()">go back</button>  
     </div>
 

@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Nova noticia</h1>
-  <form #newsForm="ngForm" (ngSubmit)="onSubmit(newsForm)">
+  <form #newsForm="ngForm" (ngSubmit)="onSubmit(); newsForm.reset()">
     {{diagnostic}}
     <div class="form-group">
       <label for="name">Titulo</label>
@@ -30,7 +30,7 @@
       [(ngModel)]="noticia.image" name="image">
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="!newsForm.form.valid" routerLink="/noticias">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!newsForm.form.valid">Submit</button>
 
   </form>
 </div>

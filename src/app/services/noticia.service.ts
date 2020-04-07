@@ -24,13 +24,26 @@ export class NoticiaService {
   }
 
   addNew(noticia: Noticia) {
-    this.firestore.collection('test').add({
+    this.firestore.collection('news').add({
       title: noticia.title,
       news: noticia.news,
       body: noticia.body,
       url: noticia.url,
       image: noticia.image,
       pos: this.getPos()
+    });
+  }
+
+  deleteNew(id: string){
+    this.firestore.collection('news').doc(id).delete();
+  }
+
+  updateNew(id: string, noticia: Noticia){
+    this.firestore.collection('news').doc(id).update({
+      title: noticia.title,
+      news: noticia.news,
+      url: noticia.url,
+      image: noticia.image,
     });
   }
 

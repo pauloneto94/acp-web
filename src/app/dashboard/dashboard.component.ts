@@ -13,14 +13,14 @@ export class DashboardComponent implements OnInit {
 
   constructor(private noticiaService: NoticiaService) { }
 
-  noticia: Noticia = {id: "", title: "", news: "", url: "", image: "", pos: null, body: "body"};
+  noticia: Noticia; 
 
   ngOnInit() {
+    this.noticia = {id: "", title: "", news: "", url: "", image: "", pos: null, body: "body"};
   }
 
-  onSubmit(form: NgForm) {
+  onSubmit() {
     this.noticiaService.addNew(this.noticia);
-    this.noticia = {id: "", title: "", news: "", url: "", image: "", pos: null, body: "body"};
   }
 
   get diagnostic() { return JSON.stringify(this.noticia); }
