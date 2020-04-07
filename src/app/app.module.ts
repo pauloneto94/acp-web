@@ -9,7 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { environment } from "src/environments/environment";
 import { NoticiaService } from './services/noticia.service';
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore'
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
  
 @NgModule({
@@ -17,7 +17,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
     AppComponent,
     NoticiasComponent,
     NoticiaDetailComponent,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

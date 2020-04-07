@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiaService } from '../services/noticia.service'
 import { Noticia } from '../model/noticias';
+import { NgForm } from '@angular/forms';
+import { format } from 'url';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,21 +13,16 @@ export class DashboardComponent implements OnInit {
 
   constructor(private noticiaService: NoticiaService) { }
 
-  noticias: Noticia[];
+  noticia: Noticia = {id: "", title: "", news: "", url: "", image: "", pos: null, body: "body"};
 
   ngOnInit() {
-    this.getNoticias()
   }
 
-  getNoticias(): void{
-    this.noticiaService.getNoticias()
-    .subscribe(actionArray =>{
-      this.noticias = actionArray.map(item =>{
-        const data = item.payload.doc.data() as Noticia;
-        data.id = item.payload.doc.id;
-        return data;
-      })
-    });
+  onSubmit(form: NgForm) {
+    this.noticiaService.addNew(this.noticia);
+    this.noticia = {id: "", title: "", news: "", url: "", image: "", pos: null, body: "body"};
   }
+
+  get diagnostic() { return JSON.stringify(this.noticia); }
 
 }

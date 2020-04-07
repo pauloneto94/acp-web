@@ -2,8 +2,7 @@
 <ul class="noticias">
   <li *ngFor="let noticia of noticias">
     <a routerLink="/detail/{{noticia.id}}">
-      <span class="badge">{{noticia.id}}</span> {{noticia.title}}
+      {{noticia.title}}
     </a>
   </li>
 </ul>
-
