@@ -12,14 +12,12 @@ export class BeneficiosComponent implements OnInit {
   cat: string = 'Bares e Restaurantes';
   beneficios: Beneficios[];
 
-  
-
   items = ['Bares e Restaurantes', 'Beleza e Estética', 'Saúde e Bem Estar', 'Educação e Idiomas', 'Viagens', 'Outros'];              
 
   constructor(private beneficioService: BeneficioService) { }
 
   ngOnInit() {
-    this.getBeneficios()
+    this.getBeneficios() 
   }
 
   getBeneficios(){

@@ -25,7 +25,7 @@ export class BeneficioService {
   }
 
   addBeneficio(beneficio: Beneficios) {
-    this.firestore.collection('test').add({
+    this.firestore.collection('benefits').add({
       name: beneficio.name,
       description: beneficio.description,
       image: beneficio.image,
@@ -46,7 +46,7 @@ export class BeneficioService {
       image: beneficio.image,
       tel: beneficio.tel,
       addr: beneficio.addr,
-      cat: beneficio.cat
+      cat: this.categories[beneficio.cat]
     });
   }
 

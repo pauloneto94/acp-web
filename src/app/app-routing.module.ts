@@ -10,13 +10,13 @@ import { BeneficioDetailComponent } from './beneficio-detail/beneficio-detail.co
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/noticias', pathMatch: 'full' },
   { path: 'noticias', component: NoticiasComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'noticia/:id', component: NoticiaDetailComponent },
   { path: 'beneficios', component: BeneficiosComponent },
   { path: 'novoBeneficio', component: BeneficioDashboardComponent },
-  { path: 'beneficio/:id', component: BeneficioDetailComponent }
+  { path: 'beneficio/:id', component: BeneficioDetailComponent}
 ];
 
 @NgModule({

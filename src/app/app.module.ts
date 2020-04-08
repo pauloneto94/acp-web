@@ -11,9 +11,10 @@ import { NoticiaService } from './services/noticia.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BeneficiosComponent } from './beneficios/beneficios.component';
-import { BeneficioDetailComponent } from './beneficio-detail/beneficio-detail.component';
 import { BeneficioDashboardComponent } from './beneficio-dashboard/beneficio-dashboard.component';
 import { BeneficioService } from './services/beneficio.service';
+import { BeneficioDetailComponent } from './beneficio-detail/beneficio-detail.component';
+import { LoginComponent } from './login/login.component';
 
  
 @NgModule({
@@ -23,8 +24,9 @@ import { BeneficioService } from './services/beneficio.service';
     NoticiaDetailComponent,
     DashboardComponent,
     BeneficiosComponent,
-    BeneficioDetailComponent,
     BeneficioDashboardComponent,
+    BeneficioDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

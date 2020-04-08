@@ -1,7 +1,6 @@
 <div class="container" *ngIf="noticia">
   <h2>{{noticia.title}}</h2>
   <form #newsForm="ngForm" (ngSubmit)="onSubmit()">
-    {{diagnostic}}
     <div class="form-group">
       <label for="name">Titulo</label>
       <input type="text" class="form-control" id="title"

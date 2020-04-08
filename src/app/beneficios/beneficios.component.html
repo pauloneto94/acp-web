@@ -1,12 +1,12 @@
 <div class="container">
 <h2>Beneficios</h2>
+<select class="select" id="cat" [(ngModel)]="cat" (change)="newSearch()">
+  <option *ngFor="let item of items" [value]="item">{{item}}</option>
+</select>
 <ul class="beneficios">
-  <select class="select" id="cat" [(ngModel)]="cat" (change)="newSearch()">
-    <option *ngFor="let item of items" [value]="item">{{item}}</option>
-  </select>
-  <li *ngFor="let beneficio of beneficios">
-    <a routerLink="/beneficio/{{beneficio.id}}">
-      {{beneficio.name}}
+  <li *ngFor="let b of beneficios">
+    <a routerLink="/beneficio/{{b.id}}">
+      {{b.name}}
     </a>
   </li>
 </ul>
