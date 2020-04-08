@@ -12,23 +12,18 @@ export class BeneficiosComponent implements OnInit {
   cat: string = 'Bares e Restaurantes';
   beneficios: Beneficios[];
 
-  categories = {'Bares e Restaurantes': "BR",
-                'Beleza e Estética': "BE",
-                'Saúde e Bem Estar': "SB",
-                'Educação e Idiomas': "EI",
-                'Viagens': "V",
-                'Outros': "O"};
+  
 
   items = ['Bares e Restaurantes', 'Beleza e Estética', 'Saúde e Bem Estar', 'Educação e Idiomas', 'Viagens', 'Outros'];              
 
   constructor(private beneficioService: BeneficioService) { }
 
   ngOnInit() {
-    this.getBeneficios(this.categories[this.cat])
+    this.getBeneficios()
   }
 
-  getBeneficios(cat: string){
-    this.beneficioService.getBeneficios(cat)
+  getBeneficios(){
+    this.beneficioService.getBeneficios(this.cat)
       .subscribe(actionArray =>{
         this.beneficios = actionArray.map(item =>{
           const data = item.payload.doc.data() as Beneficios;
@@ -39,7 +34,7 @@ export class BeneficiosComponent implements OnInit {
   }
 
   newSearch(){
-    this.getBeneficios(this.categories[this.cat])
+    this.getBeneficios()
   }
 
 }

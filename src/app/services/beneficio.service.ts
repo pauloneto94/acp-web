@@ -7,10 +7,17 @@ import { Beneficios } from '../model/beneficios';
 })
 export class BeneficioService {
 
+  categories = {'Bares e Restaurantes': "BR",
+                'Beleza e Estética': "BE",
+                'Saúde e Bem Estar': "SB",
+                'Educação e Idiomas': "EI",
+                'Viagens': "V",
+                'Outros': "O"};
+
   constructor(private firestore: AngularFirestore) { }
 
   getBeneficios(cat: string){
-    return this.firestore.collection('benefits', ref => ref.where('cat', '==', cat)).snapshotChanges();
+    return this.firestore.collection('benefits', ref => ref.where('cat', '==', this.categories[cat])).snapshotChanges();
   }
 
   getBeneficio(id: string){
@@ -24,7 +31,7 @@ export class BeneficioService {
       image: beneficio.image,
       tel: beneficio.tel,
       addr: beneficio.addr,
-      cat: beneficio.cat
+      cat: this.categories[beneficio.cat]
     });
   }
 

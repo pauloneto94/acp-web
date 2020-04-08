@@ -1,1 +1,50 @@
-<p>beneficio-dashboard works!</p>
+<div class="container">
+    <h1>Novo benefício</h1>
+    <form #benefitsForm="ngForm" (ngSubmit)="onSubmit(); benefitsForm.reset()">
+      {{diagnostic}}
+      <div class="form-group">
+        <label for="name">Empresa</label>
+        <input type="text" class="form-control" id="name"
+         required
+         [(ngModel)]="beneficio.name" name="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Descrição</label>
+        <input type="text" class="form-control" id="description"
+        required
+        [(ngModel)]="beneficio.description" name="description">
+      </div>
+  
+      <div class="form-group">
+        <label for="addr">Endereço</label>
+        <input type="text" class="form-control" id="addr"
+        required
+        [(ngModel)]="beneficio.addr" name="addr">
+      </div>
+  
+      <div class="form-group">
+        <label for="tel">Telefone</label>
+        <input type="text" class="form-control" id="tel"
+        required
+        [(ngModel)]="beneficio.tel" name="tel">
+      </div>
+
+      <div class="form-group">
+        <label for="image">Logo</label>
+        <input type="text" class="form-control" id="image"
+        required
+        [(ngModel)]="beneficio.image" name="image">
+      </div>
+
+      <div class="form-group">
+        <label for="cat">Categoria</label>
+        <select class="form-control" id="cat" [(ngModel)]="beneficio.cat" name="cat" required>
+          <option *ngFor="let item of items" [value]="item">{{item}}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-success" [disabled]="!benefitsForm.form.valid">Submit</button>
+  
+    </form>
+  </div>
