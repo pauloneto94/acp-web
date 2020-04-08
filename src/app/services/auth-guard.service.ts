@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { LoginService } from './login.service';
 
 @Injectable({
@@ -7,13 +7,22 @@ import { LoginService } from './login.service';
 })
 export class AuthGuardService {
 
-  constructor(private router: Router, private loginService: LoginService) { }
+  isLoggedIn: boolean;
 
-  canActivate() {
-    if ( this.loginService.isLoggedIn() ) {
-        return true;
+  constructor(private router: Router, private loginService: LoginService) {
+    this.isLoggedIn = false;
+   }
+
+  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
+    this.loginService.logged.asObservable().subscribe(res => this.isLoggedIn = res);
+    if(this.isLoggedIn){
+      return true;
     }
-    this.router.navigate(['/']);
+    
+    this.loginService.redirectUrl = state.url
+    this.router.navigate(['/login']);
+    
     return false;
+    
 }
 }

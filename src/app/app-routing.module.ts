@@ -12,7 +12,7 @@ import { AuthGuardService } from './services/auth-guard.service'
  
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/noticias', pathMatch: 'full' },
   { path: 'noticias', component: NoticiasComponent, canActivate: [AuthGuardService] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
   { path: 'noticia/:id', component: NoticiaDetailComponent, canActivate: [AuthGuardService] },

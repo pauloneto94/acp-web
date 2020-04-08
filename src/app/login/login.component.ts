@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   logIn(){
     this.loginService.signIn(this.email, this.password).then(res =>{
       this.router.navigate(['noticias']);
-      this.message = "entrou"
+      this.loginService.isLoggedIn = true;
+      this.loginService.logged.next(true);
     }).catch(err => {
       this.message = "Login ou senha incorreto"
     });
