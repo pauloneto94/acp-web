@@ -12,16 +12,15 @@ export class LoginService {
   userData: firebase.User;
   redirectUrl: string;
   isLoggedIn: boolean;
-  logged = new BehaviorSubject<boolean>(false);
+  logged: BehaviorSubject<boolean>;
 
   constructor(private auth: AngularFireAuth, private router: Router) { 
-    this.isLoggedIn = false;
+    this.logged = new BehaviorSubject<boolean>(false);
     this.user = auth.authState
     this.user.subscribe(
       (user) => {
         if (user) {
           this.userData = user;
-          console.log(this.userData);
           this.isLoggedIn = true;
           this.logged.next(true);
           if(this.redirectUrl) {

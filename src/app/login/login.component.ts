@@ -28,8 +28,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  logOff(){
-    this.loginService.signOut();
-  }
-
 }
