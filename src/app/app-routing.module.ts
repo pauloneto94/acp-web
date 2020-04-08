@@ -8,16 +8,17 @@ import { BeneficiosComponent } from './beneficios/beneficios.component';
 import { BeneficioDashboardComponent } from './beneficio-dashboard/beneficio-dashboard.component';
 import { BeneficioDetailComponent } from './beneficio-detail/beneficio-detail.component';
 import { LoginComponent } from './login/login.component';
-
+import { AuthGuardService } from './services/auth-guard.service'
+ 
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'noticias', component: NoticiasComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'noticia/:id', component: NoticiaDetailComponent },
-  { path: 'beneficios', component: BeneficiosComponent },
-  { path: 'novoBeneficio', component: BeneficioDashboardComponent },
-  { path: 'beneficio/:id', component: BeneficioDetailComponent},
+  { path: 'noticias', component: NoticiasComponent, canActivate: [AuthGuardService] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService] },
+  { path: 'noticia/:id', component: NoticiaDetailComponent, canActivate: [AuthGuardService] },
+  { path: 'beneficios', component: BeneficiosComponent, canActivate: [AuthGuardService] },
+  { path: 'novoBeneficio', component: BeneficioDashboardComponent, canActivate: [AuthGuardService] },
+  { path: 'beneficio/:id', component: BeneficioDetailComponent, canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent }
 ];
 

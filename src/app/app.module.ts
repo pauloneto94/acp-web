@@ -15,6 +15,7 @@ import { BeneficioDashboardComponent } from './beneficio-dashboard/beneficio-das
 import { BeneficioService } from './services/beneficio.service';
 import { BeneficioDetailComponent } from './beneficio-detail/beneficio-detail.component';
 import { LoginComponent } from './login/login.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
  
 @NgModule({
@@ -33,7 +34,8 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
- 	  AngularFirestoreModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule 
   ],
   providers: [NoticiaService, BeneficioService],
   bootstrap: [AppComponent]
