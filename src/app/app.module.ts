@@ -10,6 +10,10 @@ import { environment } from "src/environments/environment";
 import { NoticiaService } from './services/noticia.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { BeneficiosComponent } from './beneficios/beneficios.component';
+import { BeneficioDetailComponent } from './beneficio-detail/beneficio-detail.component';
+import { BeneficioDashboardComponent } from './beneficio-dashboard/beneficio-dashboard.component';
+import { BeneficioService } from './services/beneficio.service';
 
  
 @NgModule({
@@ -18,6 +22,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     NoticiasComponent,
     NoticiaDetailComponent,
     DashboardComponent,
+    BeneficiosComponent,
+    BeneficioDetailComponent,
+    BeneficioDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,7 +33,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireModule.initializeApp(environment.firebaseConfig),
  	  AngularFirestoreModule,
   ],
-  providers: [NoticiaService],
+  providers: [NoticiaService, BeneficioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

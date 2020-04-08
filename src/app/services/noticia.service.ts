@@ -10,7 +10,6 @@ import { getParseErrors } from '@angular/compiler';
 })
 export class NoticiaService {
 
-  pos: number;
   noticia: Noticia;
 
   constructor(private firestore: AngularFirestore) { }

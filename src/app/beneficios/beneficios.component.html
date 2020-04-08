@@ -1,0 +1,13 @@
+<div class="container">
+<h2>Beneficios</h2>
+<ul class="beneficios">
+  <select class="select" id="cat" [(ngModel)]="cat" (change)="newSearch()">
+    <option *ngFor="let item of items" [value]="item">{{item}}</option>
+  </select>
+  <li *ngFor="let beneficio of beneficios">
+    <a routerLink="/beneficio/{{beneficio.id}}">
+      {{beneficio.name}}
+    </a>
+  </li>
+</ul>
+</div>

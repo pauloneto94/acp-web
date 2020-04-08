@@ -1,0 +1,46 @@
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Beneficios } from '../model/beneficios';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BeneficioService {
+
+  constructor(private firestore: AngularFirestore) { }
+
+  getBeneficios(cat: string){
+    return this.firestore.collection('benefits', ref => ref.where('cat', '==', cat)).snapshotChanges();
+  }
+
+  getBeneficio(id: string){
+    return this.firestore.collection('benefits').doc(id).snapshotChanges();
+  }
+
+  addBeneficio(beneficio: Beneficios) {
+    this.firestore.collection('test').add({
+      name: beneficio.name,
+      description: beneficio.description,
+      image: beneficio.image,
+      tel: beneficio.tel,
+      addr: beneficio.addr,
+      cat: beneficio.cat
+    });
+  }
+
+  deleteBeneficio(id: string){
+    this.firestore.collection('benefits').doc(id).delete();
+  }
+
+  updateNew(id: string, beneficio: Beneficios){
+    this.firestore.collection('benefits').doc(id).update({
+      name: beneficio.name,
+      description: beneficio.description,
+      image: beneficio.image,
+      tel: beneficio.tel,
+      addr: beneficio.addr,
+      cat: beneficio.cat
+    });
+  }
+
+}

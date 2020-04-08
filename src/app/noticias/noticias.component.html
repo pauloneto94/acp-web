@@ -1,8 +1,10 @@
+<div class="container">
 <h2>Noticias</h2>
 <ul class="noticias">
   <li *ngFor="let noticia of noticias">
-    <a routerLink="/detail/{{noticia.id}}">
+    <a routerLink="/noticia/{{noticia.id}}">
       {{noticia.title}}
     </a>
   </li>
 </ul>
+</div>
