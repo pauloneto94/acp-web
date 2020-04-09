@@ -25,7 +25,7 @@
 
     <div class="form-group">
       <label for="image">Imagem</label>
-      <input type="text" class="form-control" id="image"
+      <input type="file" (change)="showPreview($event)" id="image"
       required
       [(ngModel)]="noticia.image" name="image">
     </div>
