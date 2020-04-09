@@ -9,6 +9,7 @@ import { BeneficioDashboardComponent } from './beneficio-dashboard/beneficio-das
 import { BeneficioDetailComponent } from './beneficio-detail/beneficio-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './services/auth-guard.service'
+import { UploadComponent } from './upload/upload.component';
  
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'beneficios', component: BeneficiosComponent, canActivate: [AuthGuardService] },
   { path: 'novoBeneficio', component: BeneficioDashboardComponent, canActivate: [AuthGuardService] },
   { path: 'beneficio/:id', component: BeneficioDetailComponent, canActivate: [AuthGuardService]},
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'upload', component: UploadComponent }
 ];
 
 @NgModule({
