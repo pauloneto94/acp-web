@@ -3,6 +3,8 @@ import { Beneficios } from '../model/beneficios';
 import { BeneficioService } from '../services/beneficio.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common'
+import { FirestorageService } from '../services/firestorage.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-beneficio-detail',
@@ -23,6 +25,7 @@ export class BeneficioDetailComponent implements OnInit {
 
   constructor(
     private beneficioService: BeneficioService,
+    private firestorageService: FirestorageService,
     private route: ActivatedRoute,
     private location: Location) { }
 
@@ -52,6 +55,18 @@ export class BeneficioDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  showPreview(event: any) {
+    this.firestorageService.setImage(event.target.files[0])
+    this.firestorageService.save().snapshotChanges().pipe(
+      finalize(() => {
+        this.firestorageService.storageRef.getDownloadURL().subscribe(downloadURL => {
+          console.log('File available at', downloadURL);
+          this.beneficio.image = downloadURL;
+        });
+      })
+    ).subscribe();
   }
 
 }

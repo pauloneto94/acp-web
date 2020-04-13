@@ -2,7 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Noticia } from '../model/noticias';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { NoticiaService } from '../services/noticia.service'
+import { NoticiaService } from '../services/noticia.service';
+import { finalize } from 'rxjs/operators';
+import { FirestorageService } from '../services/firestorage.service';
 
 @Component({
   selector: 'app-noticia-detail',
@@ -16,6 +18,7 @@ export class NoticiaDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private noticiaService: NoticiaService,
+    private firestorageService: FirestorageService,
     private location: Location
     ) { }
 
@@ -44,6 +47,18 @@ export class NoticiaDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  showPreview(event: any) {
+    this.firestorageService.setImage(event.target.files[0])
+    this.firestorageService.save().snapshotChanges().pipe(
+      finalize(() => {
+        this.firestorageService.storageRef.getDownloadURL().subscribe(downloadURL => {
+          console.log('File available at', downloadURL);
+          this.noticia.image = downloadURL;
+        });
+      })
+    ).subscribe();
   }
 
 }

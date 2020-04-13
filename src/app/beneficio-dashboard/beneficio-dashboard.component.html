@@ -32,7 +32,7 @@
 
       <div class="form-group">
         <label for="image">Logo</label>
-        <input type="text" class="form-control" id="image"
+        <input type="file" (change)="showPreview($event)" id="image"
         required
         [(ngModel)]="beneficio.image" name="image">
       </div>
