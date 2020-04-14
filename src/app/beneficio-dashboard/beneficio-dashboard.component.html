@@ -1,7 +1,6 @@
 <div class="container">
     <h1>Novo benefício</h1>
     <form #benefitsForm="ngForm" (ngSubmit)="onSubmit(); benefitsForm.reset()">
-      {{diagnostic}}
       <div class="form-group">
         <label for="name">Empresa</label>
         <input type="text" class="form-control" id="name"
