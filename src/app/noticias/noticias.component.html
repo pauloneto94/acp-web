@@ -1,8 +1,8 @@
 <div class="container">
 <h2>Noticias</h2>
-<ul class="noticias">
+<ul class="noticias" class="list-group" style="list-style-type: none;">
   <li *ngFor="let noticia of noticias">
-    <a routerLink="/noticia/{{noticia.id}}">
+    <a class="list-group-item" routerLink="/noticia/{{noticia.id}}">
       {{noticia.title}}
     </a>
   </li>

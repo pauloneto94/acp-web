@@ -1,10 +1,18 @@
-<h1>{{title}}</h1>
-<nav *ngIf="isLoggedIn">
-  <a routerLink="/dashboard">Nova noticia</a>
-  <a routerLink="/noticias">Noticias</a>
-  <a routerLink="/novoBeneficio">Novo beneficio</a>
-  <a routerLink="/beneficios">Beneficios</a>
-  <a (click)="logOff()">Logoff</a>
+<div class="text-center">
+  <img src="https://firebasestorage.googleapis.com/v0/b/acp-app-c002b.appspot.com/o/logo.png?alt=media&token=557bf900-83c4-4b16-a027-d55b6db3cc07" alt="AFACP" width="300" height="150">
+</div>
+<nav *ngIf="isLoggedIn" class="navbar navbar-default">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a routerLink="/noticias">Noticias</a></li>
+      <li><a routerLink="/dashboard">Nova noticia</a></li>
+      <li><a routerLink="/beneficios">Beneficios</a></li>
+      <li><a routerLink="/novoBeneficio">Novo beneficio</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a (click)="logOff()"><span class="glyphicon glyphicon-log-in"></span> Logoff</a></li>
+    </ul>
+  </div>
 </nav>
 <div class="container">
   <router-outlet></router-outlet>

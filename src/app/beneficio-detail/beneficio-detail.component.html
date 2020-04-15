@@ -30,22 +30,24 @@
       </div>
 
       <div class="form-group">
-        <label for="image">Logo</label>
-        <input type="file" (change)="showPreview($event)" id="image"
-        [(ngModel)]="beneficio.image" name="image">
-      </div>
-
-      <div class="form-group">
         <label for="cat">Categoria</label>
         <select class="form-control" id="cat" [(ngModel)]="beneficio.cat" name="cat" required>
           <option *ngFor="let item of items" [value]="item">{{item}}</option>
         </select>
       </div>
-  
-      <button type="submit" class="btn btn-success" [disabled]="!benefitsForm.form.valid">Salvar alterações</button>
-      <button type="button" class="btn btn-success" (click)="delete()" routerLink="/beneficios">Deletar</button> 
+
+      <div class="form-group">
+        <label for="image">Logo</label>
+        <input type="file" (change)="showPreview($event)" id="image"
+        [(ngModel)]="beneficio.image" name="image">
+      </div>
     </form>
-         
-    <button (click)="goBack()">go back</button>  
+
+    <div class="btn-toolbar">
+      <button type="submit" class="btn btn-success" [disabled]="!benefitsForm.form.valid">Salvar alterações</button>
+      <button type="button" class="btn btn-danger" (click)="delete()" routerLink="/beneficios">Deletar</button>      
+      <button class="btn btn-default pull-right" (click)="goBack()">Voltar</button> 
+  </div>
+
 </div>
   

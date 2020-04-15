@@ -1,11 +1,12 @@
 <div class="container">
 <h2>Beneficios</h2>
-<select class="select" id="cat" [(ngModel)]="cat" (change)="newSearch()">
+<select class="form-control" id="cat" [(ngModel)]="cat" (change)="newSearch()">
   <option *ngFor="let item of items" [value]="item">{{item}}</option>
 </select>
-<ul class="beneficios">
+<br>
+<ul class="beneficios" class="list-group" style="list-style-type: none;">
   <li *ngFor="let b of beneficios">
-    <a routerLink="/beneficio/{{b.id}}">
+    <a class="list-group-item" routerLink="/beneficio/{{b.id}}">
       {{b.name}}
     </a>
   </li>
