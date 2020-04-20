@@ -18,15 +18,19 @@
       <div class="form-group">
         <label for="addr">Endereço</label>
         <input type="text" class="form-control" id="addr"
-        required
         [(ngModel)]="beneficio.addr" name="addr">
       </div>
   
       <div class="form-group">
         <label for="tel">Telefone</label>
         <input type="text" class="form-control" id="tel"
-        required
         [(ngModel)]="beneficio.tel" name="tel">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email"
+        [(ngModel)]="beneficio.email" name="email">
       </div>
 
       <div class="form-group">
@@ -41,13 +45,14 @@
         <input type="file" (change)="showPreview($event)" id="image"
         [(ngModel)]="beneficio.image" name="image">
       </div>
-    </form>
 
-    <div class="btn-toolbar">
-      <button type="submit" class="btn btn-success" [disabled]="!benefitsForm.form.valid">Salvar alterações</button>
-      <button type="button" class="btn btn-danger" (click)="delete()" routerLink="/beneficios">Deletar</button>      
-      <button class="btn btn-default pull-right" (click)="goBack()">Voltar</button> 
-  </div>
+      <div class="btn-toolbar">
+        <button type="submit" class="btn btn-success" [disabled]="!benefitsForm.form.valid">Salvar alterações</button>
+        <button type="button" class="btn btn-danger" (click)="delete()" routerLink="/beneficios">Deletar</button>      
+        <button class="btn btn-default pull-right" (click)="goBack()">Voltar</button> 
+      </div>
+
+    </form>
 
 </div>
   

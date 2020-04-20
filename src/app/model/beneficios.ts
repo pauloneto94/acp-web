@@ -4,6 +4,7 @@ export class Beneficios{
     cat: string;
     addr: string;
     description: string;
+    email: string;
     tel: string;
     image: string;
 }

@@ -18,7 +18,7 @@ export class BeneficioDashboardComponent implements OnInit {
   constructor(private firestorageService: FirestorageService ,private beneficioService: BeneficioService) { }
 
   ngOnInit() {
-    this.beneficio = {id: "", name: "", description: "", addr: "", image: "", tel: "", cat: ""};
+    this.beneficio = {id: "", name: "", description: "", addr: "", image: "", email: "", cat: "", tel: ""};
   }
 
   onSubmit(){

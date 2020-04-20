@@ -31,6 +31,7 @@ export class BeneficioService {
       image: beneficio.image,
       tel: beneficio.tel,
       addr: beneficio.addr,
+      email: beneficio.email,
       cat: this.categories[beneficio.cat]
     });
   }

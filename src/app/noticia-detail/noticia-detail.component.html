@@ -27,13 +27,16 @@
       <input type="file" (change)="showPreview($event)" id="image"
       [(ngModel)]="noticia.image" name="image">
     </div>
+
+    <div class="btn-toolbar">
+      <button type="submit" class="btn btn-success" [disabled]="!newsForm.form.valid">Salvar alterações</button>
+      <button type="button" class="btn btn-danger" (click)="delete()" routerLink="/noticias">Deletar</button> 
+      <button class="btn btn-default pull-right" (click)="goBack()">Voltar</button>  
+    </div>  
+    
   </form>
 
-  <div class="btn-toolbar">
-    <button type="submit" class="btn btn-success" [disabled]="!newsForm.form.valid">Salvar alterações</button>
-    <button type="button" class="btn btn-danger" (click)="delete()" routerLink="/noticias">Deletar</button> 
-    <button class="btn btn-default pull-right" (click)="goBack()">Voltar</button>  
-  </div>  
+  
 
 </div>
 

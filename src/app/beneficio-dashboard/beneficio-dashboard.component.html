@@ -18,15 +18,19 @@
       <div class="form-group">
         <label for="addr">Endereço</label>
         <input type="text" class="form-control" id="addr"
-        required
         [(ngModel)]="beneficio.addr" name="addr">
       </div>
   
       <div class="form-group">
         <label for="tel">Telefone</label>
         <input type="text" class="form-control" id="tel"
-        required
         [(ngModel)]="beneficio.tel" name="tel">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email"
+        [(ngModel)]="beneficio.email" name="email">
       </div>
 
       <div class="form-group">
